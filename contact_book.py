@@ -43,8 +43,10 @@ class ContactBook:
         Returns:
             bool: True if a contact was removed, otherwise False.
         """
+        search_name = name.strip().lower()
+
         for contact in self.contacts:
-            if contact.name.lower() == name.lower():
+            if contact.name.strip().lower() == search_name:
                 self.contacts.remove(contact)
                 return True
 
@@ -56,8 +58,10 @@ class ContactBook:
         Returns:
             Contact or None: The matching contact if found.
         """
+        search_name = name.strip().lower()
+
         for contact in self.contacts:
-            if name.lower() in contact.name.lower():
+            if search_name in contact.name.lower():
                 return contact
 
         return None
